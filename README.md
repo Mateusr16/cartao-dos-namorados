@@ -1,1 +1,0 @@
-# cartao-dos-namorados
