@@ -70,6 +70,10 @@
             background: rgba(255, 255, 255, 0.85);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            /* Adicionado para centralizar o conteúdo do spotify-container */
+            display: flex;
+            flex-direction: column; /* Para empilhar o áudio e o texto verticalmente */
+            align-items: center; /* Para centralizar horizontalmente os itens */
         }
         /* Correção para o coração centralizado e pulsando corretamente */
         .heart-container {
@@ -86,7 +90,6 @@
     </style>
 </head>
 
-
     
 <body class="bg-pink-50 min-h-screen font-sans overflow-x-hidden">
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
@@ -100,7 +103,6 @@
     </div>
 
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- PÁGINA 0 - MÚSICA DO SPOTIFY (CORRIGIDA) -->
         <div id="page0" class="page active text-center">
             <div class="heart-container">
                 <div class="heart-beat text-red-500 text-6xl">
@@ -111,9 +113,8 @@
             <p class="text-xl text-gray-700 mb-8">Comece ouvindo a música que representa nosso amor</p>
             
             <div class="spotify-container">
-                <audio controls>
-                  <source src="Jorge_Mateus_Seu_Olhar.mp3" autoplay type="audio/mpeg">
-                  Seu navegador não suporta áudio.
+                <audio controls class="w-full"> <source src="Jorge_Mateus_Seu_Olhar.mp3" autoplay type="audio/mpeg">
+                    Seu navegador não suporta áudio.
                 </audio>
                 <p class="text-gray-600 mt-4">"Seu Olhar" - Jorge & Mateus</p>
             </div>
@@ -123,7 +124,6 @@
             </button>
         </div>
 
-        <!-- Página 1 - Capa (original) -->
         <div id="page1" class="page">
             <div class="heart-container">
                 <div class="heart-beat text-red-500 text-6xl">
@@ -135,8 +135,8 @@
             
             <div class="polaroid inline-block mx-auto mb-8">
                 <img src="https://drive.google.com/thumbnail?sz=w640&id=1pr9dgNCn9Ngc8xdNX-IXBCvfld5QJgc_" 
-                     alt="Nossa foto" 
-                     class="w-64 h-64 object-cover">
+                    alt="Nossa foto" 
+                    class="w-64 h-64 object-cover">
                 <p class="text-gray-600 mt-2">Nossa foto</p>
             </div>
             
@@ -146,7 +146,6 @@
         </div>
 
 
-        <!-- Página 2 - Mensagem (original) -->
         <div id="page2" class="page">
             <div class="bg-white bg-opacity-90 rounded-xl p-6 md:p-8 shadow-lg">
                 <div class="text-center mb-6">
@@ -174,36 +173,35 @@
             </div>
         </div>
 
-        <!-- Página 3 - Galeria (original) -->
         <div id="page3" class="page">
             <div class="text-center mb-8">
                 <h2 class="dancing-script text-3xl font-bold text-pink-700 mb-2">Nossos Momentos</h2>
-                <p class="text-gray-600">Algumas das nossas memórias mais especiais</p>
+                <p class="text-gray-600">Alguns das nossas memórias mais especiais</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div class="polaroid">
                     <img src="https://drive.google.com/thumbnail?sz=w640&id=1q9GjXASNwXPFUjD-rNOSc1w7QM4zk2jD" 
-                         alt="Memória 1" 
-                         class="w-full h-80 object-cover">
+                            alt="Memória 1" 
+                            class="w-full h-80 object-cover">
                     <p class="text-gray-600 mt-2">Nossa foto mais linda</p>
                 </div>
                 <div class="polaroid">
                     <img src="https://drive.google.com/thumbnail?sz=w640&id=1q4c-O3GYtN-5sbbwPzm04GssU1MfpSIY" 
-                         alt="Memória 2" 
-                         class="w-full h-80 object-cover">
+                            alt="Memória 2" 
+                            class="w-full h-80 object-cover">
                     <p class="text-gray-600 mt-2">Eeeh carnaval que fez raiva</p>
                 </div>
                 <div class="polaroid">
                     <img src="https://drive.google.com/thumbnail?sz=w640&id=1pqtmL2pFIKwWOXP8TUF0uGxZ6CWptRke" 
-                         alt="Memória 4" 
-                         class="w-full h-80 object-cover">
+                            alt="Memória 4" 
+                            class="w-full h-80 object-cover">
                     <p class="text-gray-600 mt-2">Sempre juntos</p>
                 </div>                
                 <div class="polaroid">
                     <img src="https://drive.google.com/thumbnail?sz=w640&id=1q--H0bmzvglzlaVGbpSwqlVqgrtdtxDN" 
-                         alt="Memória 3" 
-                         class="w-full h-80 object-cover">
+                            alt="Memória 3" 
+                            class="w-full h-80 object-cover">
                     <p class="text-gray-600 mt-2">Comemorando juntos</p>
                 </div>
             </div>
@@ -218,7 +216,6 @@
             </div>
         </div>
 
-        <!-- Página 4 - Final (original) -->
         <div id="page4" class="page text-center">
             <div class="heart-beat text-red-500 text-8xl mb-8">
                 <i class="fas fa-heart"></i>
@@ -326,11 +323,7 @@
             }, 300);
         }
         
-        window.onload = () => {
-            createFallingHearts();
-        };
-
-                // Função para calcular e atualizar o tempo de amor
+        // Função para calcular e atualizar o tempo de amor
         function updateLoveTimer() {
             const startDate = new Date('2024-10-01T00:00:00');
             const now = new Date();
